@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 415647328}
   - component: {fileID: 415647331}
   - component: {fileID: 415647330}
+  - component: {fileID: 415647332}
   m_Layer: 0
   m_Name: Raqueta Derecha
   m_TagString: Untagged
@@ -506,7 +507,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &415647331
 BoxCollider2D:
@@ -534,6 +535,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &415647332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415647327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fe75562c5d2dc4abe716065ba602cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 30
+  eje: Vertical
 --- !u!1 &427511804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1135,7 @@ GameObject:
   - component: {fileID: 853296156}
   - component: {fileID: 853296159}
   - component: {fileID: 853296158}
+  - component: {fileID: 853296160}
   m_Layer: 0
   m_Name: Raqueta Izquierda
   m_TagString: Untagged
@@ -1211,7 +1227,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &853296159
 BoxCollider2D:
@@ -1239,6 +1255,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &853296160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853296155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fe75562c5d2dc4abe716065ba602cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 30
+  eje: Vertical 2
 --- !u!1 &953535784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,7 +1990,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1738159796
 BoxCollider2D:
