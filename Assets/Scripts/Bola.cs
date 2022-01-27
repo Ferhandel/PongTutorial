@@ -18,11 +18,12 @@ public class Bola : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      GetComponent<Rigidbody2D>().velocity = Vector2.right * velocidad;
         //Pongo los contadores a 0
         contadorIzquierda.text = golesIzquierda.ToString();
         contadorDerecha.text = golesDerecha.ToString();
        //Velocidad inicial hacia la derecha
-       GetComponent<Rigidbody2D>().velocity = Vector2.right * velocidad; 
+        
     }
 
     // Update is called once per frame
