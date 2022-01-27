@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Portería : MonoBehaviour
-{
-      //detecto si la bola atraviesa la porteria
+public class Porteria : MonoBehaviour {
+
+  //detecto si la bola atraviesa la porteria
   void OnTriggerEnter2D(Collider2D bola) {
 
     if (bola.name == "Bola"){
