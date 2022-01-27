@@ -130,7 +130,7 @@ public void reiniciarBola(string direccion){
 
      //Reproduzco el sonido del rebote
      fuenteDeAudio.clip = audioRebote;
-     
+     fuenteDeAudio.Play();
 
  }
 
