@@ -12,7 +12,7 @@ public class Bola : MonoBehaviour
 
      //Cajas de texto de los contadores
      [SerializeField] private Text contadorIzquierda;
-    [SerializeField] private Text contadorDerecha;
+     [SerializeField] private Text contadorDerecha;
      //Velocidad
      [SerializeField] private float velocidad = 30.0f;
    
