@@ -2384,8 +2384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   golesIzquierda: 0
   golesDerecha: 0
-  contadorIzquierda: {fileID: 0}
-  contadorDerecha: {fileID: 0}
+  contadorIzquierda: {fileID: 20436915}
+  contadorDerecha: {fileID: 598472213}
   velocidad: 30
 --- !u!1 &1759153178
 GameObject:
