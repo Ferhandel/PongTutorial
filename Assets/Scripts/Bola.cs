@@ -15,6 +15,13 @@ public class Bola : MonoBehaviour
     [SerializeField] private Text contadorDerecha;
      //Velocidad
      [SerializeField] private float velocidad = 30.0f;
+   
+    //Audio Source
+    AudioSource fuenteDeAudio;
+
+    //Clips de audio
+    [SerializeField] private AudioClip audioGol, audioRaqueta, audioRebote;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +30,9 @@ public class Bola : MonoBehaviour
         contadorIzquierda.text = golesIzquierda.ToString();
         contadorDerecha.text = golesDerecha.ToString();
        //Velocidad inicial hacia la derecha
-        
+
+       //Recupero el componente audio source;
+       fuenteDeAudio = GetComponent<AudioSource>();    
     }
 
     // Update is called once per frame
@@ -60,49 +69,71 @@ public void reiniciarBola(string direccion){
     GetComponent<Rigidbody2D>().velocity = Vector2.left * velocidad;
     //Vector2.left es lo mismo que new Vector2(-1,0)
   }
+
+    //Reproduzco el sonido del gol
+    fuenteDeAudio.clip = audioGol;
+    fuenteDeAudio.Play();
 }
+
     //Se ejecuta al colisionar
-void OnCollisionEnter2D(Collision2D micolision){
+    void OnCollisionEnter2D(Collision2D micolision){
 
-  //transform.position es la posición de la bola
-  //micolision contiene toda la información de la colisión
-  //Si la bola colisiona con la raqueta:
-  //micolision.gameObject es la raqueta
-  //micolision.transform.position es la posición de la raqueta
+    //transform.position es la posición de la bola
+    //micolision contiene toda la información de la colisión
+    //Si la bola colisiona con la raqueta:
+    //micolision.gameObject es la raqueta
+    //micolision.transform.position es la posición de la raqueta
+    //Si choca con la raqueta izquierda
+    if (micolision.gameObject.name == "Raqueta Izquierda"){
 
-  //Si choca con la raqueta izquierda
-  if (micolision.gameObject.name == "Raqueta Izquierda"){
+      //Valor de x
+      int x = 1;
 
-    //Valor de x
-    int x = 1;
+      //Valor de y
+      int y = direccionY(transform.position, micolision.transform.position);
 
-    //Valor de y
-    int y = direccionY(transform.position, micolision.transform.position);
+      //Vector de dirección
+      Vector2 direccion = new Vector2(x, y);
 
-    //Vector de dirección
-    Vector2 direccion = new Vector2(x, y);
+      //Aplico velocidad
+      GetComponent<Rigidbody2D>().velocity = direccion * velocidad;
 
-    //Aplico velocidad
-    GetComponent<Rigidbody2D>().velocity = direccion * velocidad;
+      //Reproduzco el sonido de la raqueta
+      fuenteDeAudio.clip = audioRaqueta;
+      fuenteDeAudio.Play();
+
+  }
+
+    //Si choca con la raqueta derecha
+    if (micolision.gameObject.name == "Raqueta Derecha"){
+
+      //Valor de x
+      int x = -1;
+
+      //Valor de y
+      int y = direccionY(transform.position, micolision.transform.position);
+
+      //Vector de dirección
+      Vector2 direccion = new Vector2(x, y);
+
+      //Aplico velocidad
+      GetComponent<Rigidbody2D>().velocity = direccion * velocidad;
+
+      //Reproduzco el sonido de la raqueta
+      fuenteDeAudio.clip = audioRaqueta;
+      fuenteDeAudio.Play();
 
   }
 
-  //Si choca con la raqueta derecha
-  if (micolision.gameObject.name == "Raqueta Derecha"){
+   //Para el sonido del rebote
+   if (micolision.gameObject.name == "Arriba" || micolision.gameObject.name == "Abajo"){
 
-    //Valor de x
-    int x = -1;
+     //Reproduzco el sonido del rebote
+     fuenteDeAudio.clip = audioRebote;
+     
 
-    //Valor de y
-    int y = direccionY(transform.position, micolision.transform.position);
+ }
 
-    //Vector de dirección
-    Vector2 direccion = new Vector2(x, y);
-
-    //Aplico velocidad
-    GetComponent<Rigidbody2D>().velocity = direccion * velocidad;
-
-  }
 }
 
   //Método para calcular la direccion de Y (deevuelve un número entero int)
